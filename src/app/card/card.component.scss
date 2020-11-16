@@ -1,0 +1,51 @@
+$fontEng: 'Playfair Display SC', serif;
+$fontColor:  rgb(140, 0, 255);
+
+@mixin cardSize {
+    width: 18vw;
+    height: 50vh;
+    border-radius: 10px;
+}
+
+.cardbox{
+    display: flex;
+    flex-direction: column;
+    width: 18vw;
+    height: auto;
+    margin: 10px;
+    cursor: pointer;
+    &:hover{
+        .about{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: solid $fontColor 1px;
+        }
+    }
+    .image{
+        @include cardSize;
+        box-shadow: 0px 0px 30px 10px black;
+    }
+    .about{
+        display: none;
+        padding: 7px;
+        @include cardSize;
+        background: rgba(0, 0, 0, 0.781);
+        color: rgb(228, 228, 228);
+        z-index: 2;
+        position: absolute;
+        .title{
+            height: 40vh;
+        }
+        h2{
+            color: $fontColor;
+            font-family: $fontEng;
+        }
+        p{
+            font-size: 11px;
+        }
+        .description{
+            font-size: 13px;
+        }
+    }
+}

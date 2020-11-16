@@ -1,0 +1,32 @@
+<app-slider></app-slider>
+<div class="container">
+    <div class="row justify-content-between">
+        <div class="cardbox" *ngFor="let card of cards">
+            <img class="image" src="/assets/cardimg/{{ card.image }}.jpg" alt="">
+            <div class="about" *ngIf="!card.showDetails">
+                <div class="title">
+                    <h2>{{card.name}}</h2>
+                    <h4>{{card.geoname}}</h4>
+                    <p>წელი: {{card.year}}</p>
+                    <p>ქვეყანა: {{card.country}}</p>
+                    <p>რეჟისორი: {{card.director}}</p>
+                    <p>როლებში: {{card.casts}}</p>
+                </div>
+                <button type="button" class="btn btn-outline-light" *ngIf="!card.sowDetails"
+                    (click)="card.showDetails = !card.showDetails">
+                    აღწერა
+                </button>
+            </div>
+            <div class="about" *ngIf="card.showDetails">
+                <div class="title">
+                    <p class="description">{{card.description}}</p>
+                </div>
+                <button type="button" class="btn btn-outline-danger"
+                 (click)="card.showDetails = !card.showDetails">
+                    უკან
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
